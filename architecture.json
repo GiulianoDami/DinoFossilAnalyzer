@@ -1,0 +1,37 @@
+{
+    "language": "Rust",
+    "dependency_file": "Cargo.toml",
+    "dependencies": ["serde", "serde_json"],
+    "files": [
+        {
+            "path": "src/main.rs",
+            "description": "Entry point and CLI argument parsing",
+            "exports": ["fn main()", "fn analyze_fossil()", "fn compare_fossils()", "fn generate_report()"]
+        },
+        {
+            "path": "src/models.rs",
+            "description": "Data models for fossil structure and analysis",
+            "exports": ["struct Fossil", "struct MorphologicalFeatures", "struct GeologicalContext"]
+        },
+        {
+            "path": "src/analyzer.rs",
+            "description": "Core logic for anomaly detection and species classification",
+            "exports": ["fn detect_anomalies(&Fossil)", "fn classify_species(&Fossil)", "fn score_anomaly(&Fossil)"]
+        },
+        {
+            "path": "src/io_handler.rs",
+            "description": "Input/output handling for JSON files and console output",
+            "exports": ["fn load_fossil_from_file(&str)", "fn save_report_to_file(&str, &str)", "fn print_report(&Fossil)"]
+        },
+        {
+            "path": "src/comparator.rs",
+            "description": "Logic for comparing two fossils and finding similarities",
+            "exports": ["fn compare_fossils(&Fossil, &Fossil)", "fn calculate_similarity_score(&Fossil, &Fossil)"]
+        },
+        {
+            "path": "src/lib.rs",
+            "description": "Library entry point to expose core functionality",
+            "exports": ["mod analyzer", "mod io_handler", "mod comparator", "mod models"]
+        }
+    ]
+}
